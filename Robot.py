@@ -129,13 +129,16 @@ class Robot(object):  # 定义Robot类
             if self.learning:
                 # TODO 8. When learning, update the q table according
                 # to the given rules
-                q_old = self.Qtable[self.state][action]
+                # q_old = self.Qtable[self.state][action]
 
-                #从当前 state 的 action 中选择最大的 actoin value
-                max_q = max(self.Qtable[next_state].values())
-                #根据贝尔曼方程预测新的 action value
-                q_new = r + self.gamma * max_q
-                self.Qtable[self.state][action] += self.alpha * (q_new - q_old)
+                # #从当前 state 的 action 中选择最大的 actoin value
+                # max_q = max(self.Qtable[next_state].values())
+                # #根据贝尔曼方程预测新的 action value
+                # q_new = r + self.gamma * max_q
+                # self.Qtable[self.state][action] += self.alpha * (q_new - q_old)
+
+                #Q learning formular
+                self.Qtable[self.state][action] = self.Qtable[self.state][action] + self.alpha * ((r + self.gamma * max(self.Qtable[next_state].values())) - self.Qtable[self.state][action])
              
 
 
