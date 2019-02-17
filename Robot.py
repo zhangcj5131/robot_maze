@@ -49,11 +49,11 @@ class Robot(object):  # 定义Robot类
             Some of the paramters of the q learning robot can be altered,
             update these parameters when necessary.
             """
-            #在测试阶段不需要学习
+          
             if self.testing:
                 # TODO 1. No random choice when testing
-                
-                pass
+                #测试阶段完全使用贪心策略
+                self.epsilon = 0
             else:
                 #self.t初始值为0,随着 step 增长,epsilon逐渐下降,智体从随机策略过度到贪心策略
                 self.t += 1
