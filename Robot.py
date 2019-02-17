@@ -83,6 +83,10 @@ class Robot(object):  # 定义Robot类
             # Qtable[state] ={'u':xx, 'd':xx, ...}
             # If Qtable[state] already exits, then do
             # not change it.
+     
+            # Qtable是map,如果 map 中已经有了当前 state 的值,就什么都不做,否则创建一个新的.注意它不是一个 array,而是一个 map
+            # self.Qtable.setdefault(state, {a: 0.0 for a in self.valid_actions})
+
             if state not in self.Qtable:  # Qtable是map,如果 map 中已经有了当前 state 的值,就什么都不做,否则创建一个新的.注意它不是一个 array,而是一个 map
                 self.Qtable[state] = {'u':0.0, 'r':0.0, 'd':0.0, 'l':0.0}  # 否则，新增一个状态，并赋值为0，注意是float
 
